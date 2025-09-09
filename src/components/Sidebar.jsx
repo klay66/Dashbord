@@ -1,6 +1,6 @@
-import { Home, BarChart2, Settings } from "lucide-react";
+import { Home, Users, Settings, PanelsTopLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-
+// import logo from "../image/logo.png";
 export default function Sidebar() {
     return (
         <div className="h-screen w-64 bg-white shadow-lg flex flex-col p-4">
@@ -15,11 +15,11 @@ export default function Sidebar() {
                     <span>Home</span>
                 </Link>
                 <Link
-                    to="/reports"
+                    to="/users"
                     className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-100"
                 >
-                    <BarChart2 size={20} />
-                    <span>Reports</span>
+                    <Users size={20} />
+                    <span>Users</span>
                 </Link>
                 <Link
                     to="/settings"
@@ -28,9 +28,16 @@ export default function Sidebar() {
                     <Settings size={20} />
                     <span>Settings</span>
                 </Link>
+                <Link
+                    to="/projects"
+                    className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-blue-100"
+                >
+                    <PanelsTopLeft size={20} />
+                    <span>Projects</span>
+                </Link>
             </nav>
 
-            <div className="text-sm text-gray-400 mt-4">© 2025 MyApp</div>
+            <div className="text-sm text-gray-400 mt-4">© 2025 MyApp-Nour Ali</div>
         </div>
     );
 }
