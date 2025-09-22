@@ -1,6 +1,7 @@
 
-import { Pencil, Trash2 } from "lucide-react";
+import { Eye, Pencil, Trash2 } from "lucide-react";
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 export default function Projects() {
     const [projects, setProjects] = useState([
@@ -11,7 +12,6 @@ export default function Projects() {
     const [editProject, setEditProject] = useState(null);
     const [form, setForm] = useState({ name: "", description: "" });
 
-    // فتح المودال للإضافة أو التعديل
     const openModal = (project = null) => {
         setEditProject(project);
         setForm(project ? { name: project.name, description: project.description } : { name: "", description: "" });
@@ -64,14 +64,25 @@ export default function Projects() {
                             <td className="p-3 border-b text-gray-600">{project.description}</td>
                             <td className="p-3 border-b">
                                 <span className="flex gap-2">
+                                    <Link
+                                        to='/products'
+                                        className="text-blue-600 hover:underline cursor-pointer"
+                                    >
+                                        <Eye size={20} />
+                                    </Link>
                                     <button
                                         className="text-blue-600 hover:underline cursor-pointer"
                                         onClick={() => openModal(project)}
-                                    ><Pencil /></button>
+                                    >
+                                        <Pencil size={20} />
+                                    </button>
                                     <button
                                         className="text-red-600 hover:underline cursor-pointer"
                                         onClick={() => handleDelete(project.id)}
-                                    ><Trash2 /></button>
+                                    >
+                                        <Trash2 size={20} />
+                                    </button>
+
                                 </span>
                             </td>
                         </tr>
